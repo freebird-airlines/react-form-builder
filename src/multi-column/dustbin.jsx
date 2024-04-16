@@ -36,11 +36,11 @@ function getElement(item, props) {
 function getStyle(backgroundColor) {
   return {
     border: '1px solid rgba(0,0,0,0.2)',
-    minHeight: '2rem',
+    minHeight: '4rem',
     minWidth: '7rem',
     width: '100%',
     backgroundColor,
-    padding: 0,
+    padding: 10,
     float: 'left',
   };
 }

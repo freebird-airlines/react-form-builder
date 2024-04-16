@@ -20,6 +20,16 @@ const cardSource = {
       index: props.index,
     };
   },
+  isDragging(props, monitor) {
+    console.log(props)
+    console.log(monitor.getItem())
+    if (monitor.getItem().itemType == "box") {
+      return props.id === monitor.getItem().id;
+    } else {
+      return props.index === monitor.getItem().index;
+    }
+
+  }
 };
 
 const cardTarget = {
@@ -47,6 +57,7 @@ const cardTarget = {
       }
     }
   },
+
   hover(props, monitor, component) {
     const item = monitor.getItem();
 
@@ -138,10 +149,11 @@ export default function (ComposedComponent) {
         connectDragPreview,
         connectDropTarget,
       } = this.props;
-      const opacity = isDragging ? 0 : 1;
+      const opacity = isDragging ? 0.5 : 1;
+      const backgroundColor = isDragging ? '#deeaff' : 'white'
 
       return connectDragPreview(
-        connectDropTarget(<div><ComposedComponent {...this.props} style={{ ...style, opacity }}></ComposedComponent></div>),
+        connectDropTarget(<div><ComposedComponent key={this.props.index}  {...this.props} style={{ ...style, opacity, backgroundColor }}></ComposedComponent></div>),
       );
     }
   }
