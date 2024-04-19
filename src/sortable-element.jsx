@@ -5,9 +5,9 @@ import { DragSource, DropTarget } from 'react-dnd';
 import ItemTypes from './ItemTypes';
 
 const style = {
-  border: '1px dashed gray',
+  // border: '1px dashed gray',
   padding: '0.5rem 1rem',
-  marginBottom: '.5rem',
+  // marginBottom: '.5rem',
   backgroundColor: 'white',
   cursor: 'pointer',
 };
@@ -149,11 +149,11 @@ export default function (ComposedComponent) {
         connectDragPreview,
         connectDropTarget,
       } = this.props;
-      const opacity = isDragging ? 0.5 : 1;
+      const border = isDragging && "1px solid #3498ff";
       const backgroundColor = isDragging ? '#deeaff' : 'white'
 
       return connectDragPreview(
-        connectDropTarget(<div><ComposedComponent key={this.props.index}  {...this.props} style={{ ...style, opacity, backgroundColor }}></ComposedComponent></div>),
+        connectDropTarget(<div><ComposedComponent key={this.props.index}  {...this.props} style={{ ...style, border, backgroundColor }}></ComposedComponent></div>),
       );
     }
   }
