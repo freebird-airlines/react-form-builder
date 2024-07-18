@@ -175,6 +175,7 @@ export default class FormElementsEdit extends React.Component {
               onBlur={this.updateElement.bind(this)}
               onChange={this.editElementProp.bind(this, 'label', 'value')}
             />
+            <br />
             <div className="custom-control custom-checkbox">
               <input id="is-required" className="custom-control-input" type="checkbox" checked={this_checked} value={true} onChange={this.editElementProp.bind(this, 'required', 'checked')} />
               <label className="custom-control-label" htmlFor="is-required">
